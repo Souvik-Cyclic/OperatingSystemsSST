@@ -61,10 +61,11 @@ class Subtractor implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         synchronized(value) {
-            for (int i = 0; i < 100000; i++) {
+            for (int i = 0; i < 10000; i++) {
                 value.setValue(value.getValue() - 1);
             }
         }
         return null;
     }
 }
+
