@@ -44,15 +44,14 @@ import java.util.concurrent.Future;
 //     }
 // }
 
-
 // Create a student class with run method.
 // class Student extends Thread{
-    //     @Override
-    //     public void run(){
-        
-    //     }
-    // }
-    
+//     @Override
+//     public void run(){
+
+//     }
+// }
+
 //Write code to return a list having 2x of the elements of the original list, returned by a new thread
 // class ListMultiplier implements Runnable {
 //     public List<Integer> list;
@@ -94,7 +93,7 @@ import java.util.concurrent.Future;
 
 //         Future<ArrayList<Integer>> leftSortedFuture = es.submit(leftSorter);
 //         Future<ArrayList<Integer>> rightSortedFuture = es.submit(rightSorter);
-        
+
 //         ArrayList<Integer> leftSortedList = leftSortedFuture.get();
 //         ArrayList<Integer> rightSortedList = rightSortedFuture.get();
 
@@ -134,7 +133,7 @@ import java.util.concurrent.Future;
 // }
 class Value {
     private int val;
-    
+
     public Value(int val) {
         this.val = val;
     }
@@ -152,15 +151,16 @@ class Value {
     }
 }
 
-class Adder implements Callable<Void>{
+class Adder implements Callable<Void> {
     Value val;
-    public Adder (Value val){
+
+    public Adder(Value val) {
         this.val = val;
     }
 
     @Override
-    public Void call() throws Exception{
-        for(int i=1; i<=10; i++){
+    public Void call() throws Exception {
+        for (int i = 1; i <= 10; i++) {
             val.add(1);
             System.out.println("Adder: " + val.getVal() + " " + Thread.currentThread().getName());
             try {
@@ -173,14 +173,15 @@ class Adder implements Callable<Void>{
     }
 }
 
-class Subtractor implements Callable<Void>{
+class Subtractor implements Callable<Void> {
     Value val;
-    public Subtractor(Value val){
+
+    public Subtractor(Value val) {
         this.val = val;
     }
 
     @Override
-    public Void call() throws Exception{
+    public Void call() throws Exception {
         for (int i = 0; i < 10; i++) {
             val.subtract(1);
             System.out.println("Subtractor: " + val.getVal() + " " + Thread.currentThread().getName());
@@ -194,63 +195,64 @@ class Subtractor implements Callable<Void>{
     }
 }
 
-public class Main{
-    // public static void main(String[] args) throws InterruptedException, ExecutionException {
-    //     // System.out.println("Hello World " + Thread.currentThread().getName());
-    //     // HelloWorldPrinter hwp = new HelloWorldPrinter();
-    //     // hwp.start();
-    //     // HelloWorldPrinter hwp2 = new HelloWorldPrinter();
-    //     // hwp2.start();
+public class Main {
+    // public static void main(String[] args) throws InterruptedException,
+    // ExecutionException {
+    // // System.out.println("Hello World " + Thread.currentThread().getName());
+    // // HelloWorldPrinter hwp = new HelloWorldPrinter();
+    // // hwp.start();
+    // // HelloWorldPrinter hwp2 = new HelloWorldPrinter();
+    // // hwp2.start();
 
-    //     // NumberPrinter np = new NumberPrinter();
-    //     // np.start();
-    //     // NumberPrinter np2 = new NumberPrinter();
-    //     // np2.start();
+    // // NumberPrinter np = new NumberPrinter();
+    // // np.start();
+    // // NumberPrinter np2 = new NumberPrinter();
+    // // np2.start();
 
-    //     // for (int i = 1; i <= 100; i++) {
-    //     //     try{
-    //     //         Thread.sleep(1);
-    //     //     }
-    //     //     catch(InterruptedException ex){
-    //     //     }
-    //     //     SingleNumberPrinter np = new SingleNumberPrinter(i);
-    //     //     np.start();
-    //     // }
+    // // for (int i = 1; i <= 100; i++) {
+    // // try{
+    // // Thread.sleep(1);
+    // // }
+    // // catch(InterruptedException ex){
+    // // }
+    // // SingleNumberPrinter np = new SingleNumberPrinter(i);
+    // // np.start();
+    // // }
 
-    //     // ExecutorService es = Executors.newFixedThreadPool(10);
-    //     // for(int i=1; i<=100; i++){
-    //     //     try{
-    //     //         Thread.sleep(1);
-    //     //     }
-    //     //     catch(InterruptedException e){}
-    //     //     es.submit(new SingleNumberPrinter(i));
-    //     // }
+    // // ExecutorService es = Executors.newFixedThreadPool(10);
+    // // for(int i=1; i<=100; i++){
+    // // try{
+    // // Thread.sleep(1);
+    // // }
+    // // catch(InterruptedException e){}
+    // // es.submit(new SingleNumberPrinter(i));
+    // // }
 
-    //     // ExecutorService es = Executors.newFixedThreadPool(10);
-    //     // ArrayList<Integer> list = new ArrayList<>();
-    //     // list.add(1);
-    //     // list.add(2);
-    //     // list.add(3);
-    //     // list.add(4);
-    //     // list.add(5);
-    //     // ArrayList<Integer> result = new ArrayList<>();
-    //     // ListMultiplier task = new ListMultiplier(list, result);
-    //     // es.submit(task);
-    //     // System.out.println("Original list: " + list);
-    //     // System.out.println("Result list: " + result);
-    //     // es.shutdown();
-    //     ArrayList<Integer> list = new ArrayList<>();
-    //     for(int i=10; i>=0; i--){
-    //         list.add(i);
-    //     }
+    // // ExecutorService es = Executors.newFixedThreadPool(10);
+    // // ArrayList<Integer> list = new ArrayList<>();
+    // // list.add(1);
+    // // list.add(2);
+    // // list.add(3);
+    // // list.add(4);
+    // // list.add(5);
+    // // ArrayList<Integer> result = new ArrayList<>();
+    // // ListMultiplier task = new ListMultiplier(list, result);
+    // // es.submit(task);
+    // // System.out.println("Original list: " + list);
+    // // System.out.println("Result list: " + result);
+    // // es.shutdown();
+    // ArrayList<Integer> list = new ArrayList<>();
+    // for(int i=10; i>=0; i--){
+    // list.add(i);
+    // }
 
-    //     Sorter sorter = new Sorter(list);
+    // Sorter sorter = new Sorter(list);
 
-    //     ExecutorService es = Executors.newCachedThreadPool();
-    //     Future<ArrayList<Integer>> sortedFuture = es.submit(sorter);
+    // ExecutorService es = Executors.newCachedThreadPool();
+    // Future<ArrayList<Integer>> sortedFuture = es.submit(sorter);
 
-    //     ArrayList<Integer> sortedList = sortedFuture.get();
-    //     System.out.println("Sorted List: " + sortedList);
+    // ArrayList<Integer> sortedList = sortedFuture.get();
+    // System.out.println("Sorted List: " + sortedList);
     // }
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {

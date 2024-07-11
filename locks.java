@@ -19,15 +19,15 @@ public class locks {
 
 class Value<T> {
     private T value;
-    
+
     public Value(T value) {
         this.value = value;
     }
-    
+
     public synchronized T getValue() {
         return value;
     }
-    
+
     public synchronized void setValue(T value) {
         this.value = value;
     }
@@ -35,14 +35,14 @@ class Value<T> {
 
 class Adder implements Callable<Void> {
     Value<Integer> value;
-    
+
     public Adder(Value<Integer> value) {
         this.value = value;
     }
-    
+
     @Override
     public Void call() throws Exception {
-        synchronized(value) {
+        synchronized (value) {
             for (int i = 0; i < 10000; i++) {
                 value.setValue(value.getValue() + 1);
             }
@@ -53,14 +53,14 @@ class Adder implements Callable<Void> {
 
 class Subtractor implements Callable<Void> {
     Value<Integer> value;
-    
+
     public Subtractor(Value<Integer> value) {
         this.value = value;
     }
-    
+
     @Override
     public Void call() throws Exception {
-        synchronized(value) {
+        synchronized (value) {
             for (int i = 0; i < 10000; i++) {
                 value.setValue(value.getValue() - 1);
             }
@@ -68,4 +68,3 @@ class Subtractor implements Callable<Void> {
         return null;
     }
 }
-
